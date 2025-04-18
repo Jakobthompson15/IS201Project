@@ -1,8 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Resume - Jakob Thompson</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .resume-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .resume-content {
+      width: 60%;
+    }
+    .resume-photo {
+      width: 35%;
+      text-align: center;
+    }
+    .resume-photo img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 8px;
+    }
+    .icon-row {
+      margin-top: 10px;
+    }
+    .icon-row img {
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+    }
+    .caption {
+      font-style: italic;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -12,20 +45,56 @@
     <a href="scratch.html#tableau">Tableau Skills</a>
   </nav>
 
-  <div class="container">
-    <h1>Jakob Thompson</h1>
-    <p>📞 843-624-3329<br>🏠 139 E 400 N Provo Utah 84606</p>
-    <a href="mailto:jakob@boostly.com"><img src="gmail.png" alt="Gmail" style="width:40px; margin-right:10px;"></a>
-    <a href="https://linkedin.com/in/jakobthompson"><img src="linkedin.jpg" alt="LinkedIn" style="width:40px;"></a>
+  <div class="resume-container">
+    <div class="resume-content">
+      <h1>Jakob Thompson</h1>
+      <p>📞 843-624-3329<br>🏠 139 E 400 N, Provo, Utah 84606</p>
 
-    <h2>Experience</h2>
-    <!-- Add your resume details here -->
+      <div class="icon-row">
+        <a href="mailto:jakob@boostly.com"><img src="gmail.png" alt="Gmail Icon"></a>
+        <a href="https://linkedin.com/in/jakobthompson"><img src="linkedin.jpg" alt="LinkedIn Icon"></a>
+      </div>
 
-    <div style="float: right; text-align: center; margin: 20px;">
-      <img src="RKO2025.jpeg" alt="RKO 2025" style="width:350px;">
-      <p>Revenue Kickoff January 2025</p>
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Strategic Partnership Lead, Boostly</strong> — Mar 2025–Present</li>
+        <li><strong>Sales Development Representative, Boostly</strong> — Jan 2025–Mar 2025
+          <ul>
+            <li>Achieved 375% of ramp quota (110% of regular quota)</li>
+            <li>Booked 40 meetings in 20 business days</li>
+            <li>Achieved 60% show rate, 16 qualified leads</li>
+          </ul>
+        </li>
+        <li><strong>Account Manager 2, Tesani Companies</strong> — Sep 2024–Jan 2025</li>
+        <li><strong>Product Development Manager, Moxie Pest Control</strong> — Mar 2022–Aug 2024</li>
+        <li><strong>Owner, Thompson’s Pressure Washing</strong> — May 2017–Sep 2022</li>
+      </ul>
+
+      <h2>Education</h2>
+      <p><strong>Brigham Young University</strong><br>
+      B.S. Strategic Management (Expected Winter 2027)</p>
+
+      <h2>Achievements</h2>
+      <ul>
+        <li>3.94 GPA in first college semester</li>
+        <li>Selected to start mid-market motion at Boostly</li>
+        <li>Achieved top-tier SDR metrics including 82% show rate</li>
+      </ul>
+
+      <h2>Skills</h2>
+      <ul>
+        <li>Sales Development & CRM Tools</li>
+        <li>Strategic Partnerships & Lead Generation</li>
+        <li>Data Analysis, Excel, Web Design (HTML/CSS)</li>
+      </ul>
+    </div>
+
+    <div class="resume-photo">
+      <img src="RKO2025.jpeg" alt="Revenue Kickoff 2025">
+      <div class="caption">Revenue Kickoff January 2025</div>
     </div>
   </div>
 </body>
 </html>
+
 
