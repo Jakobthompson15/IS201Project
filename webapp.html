@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web App - Jakob Thompson</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="resume.html">Resume</a>
+    <a href="scratch.html">My Work</a>
+    <a href="scratch.html#tableau">Tableau Skills</a>
+  </nav>
+
+  <div class="container">
+    <h1>Welcome to My Interactive Web App</h1>
+
+    <!-- App: A simple version of a Wordle clone -->
+    <h2>Wordle Game!</h2>
+    <p>Try to guess the 5-letter word.</p>
+    <div id="wordle">
+      <input type="text" id="guessInput" maxlength="5" placeholder="Enter a 5-letter word" />
+      <button onclick="submitGuess()">Guess</button>
+      <p id="message"></p>
+      <div id="guessResults"></div>
+    </div>
+
+    <script>
+      const wordList = ['apple', 'banana', 'cherry', 'grape', 'melon'];
+      const targetWord = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
+      const guesses = [];
+
+      function submitGuess() {
+        const guess = document.getElementById('guessInput').value.toUpperCase();
+        if (guess.length === 5) {
+          guesses.push(guess);
+          const result = checkGuess(guess);
+          displayGuessResult(guess, result);
+          document.getElementById('guessInput').value = '';
+        } else {
+          alert('Please enter a 5-letter word.');
+        }
+      }
+
+      function checkGuess(guess) {
+        let result = '';
+        for (let i = 0; i < guess.length; i++) {
+          if (guess[i] === targetWord[i]) {
+            result += '🟩';  // Green for correct letter
+          } else if (targetWord.includes(guess[i])) {
+            result += '🟨';  // Yellow for wrong position
+          } else {
+            result += '🟥';  // Red for incorrect letter
+          }
+        }
+        return result;
+      }
+
+      function displayGuessResult(guess, result) {
+        const guessDisplay = `<p>${guess} - ${result}</p>`;
+        document.getElementById('guessResults').innerHTML += guessDisplay;
+        if (result === '🟩🟩🟩🟩🟩') {
+          document.getElementById('message').textContent = 'Congratulations! You guessed the word!';
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>

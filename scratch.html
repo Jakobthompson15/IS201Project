@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Scratch Page - Jakob Thompson</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="resume.html">Resume</a>
+    <a href="scratch.html">My Work</a>
+    <a href="scratch.html#tableau">Tableau Skills</a>
+  </nav>
+
+  <div class="container">
+    <h1>My Cool Scratch Page!</h1>
+
+    <!-- Unordered list within an ordered list -->
+    <ol>
+      <li>Favorite hobbies:
+        <ul>
+          <li>Programming</li>
+          <li>Gaming</li>
+          <li>Reading</li>
+          <li>Traveling</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>My Favorite Video: The Importance of Programming</h2>
+    <!-- Embedded YouTube Video -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/C6WJiUNZf7U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <!-- Anchor to jump to Tableau skills section -->
+    <a href="#tableau" style="color: #ffcc00; text-decoration: underline; font-size: 1.2em;">Go to Tableau Skills</a>
+
+    <hr>
+
+    <!-- Tableau Embedded Visualization -->
+    <h2 id="tableau">Tableau Skills</h2>
+    <p>Here's a Tableau visualization of CFC Player Management Dashboard:</p>
+    <div class='tableauPlaceholder' id='viz1744954995077' style='position: relative'>
+      <noscript>
+        <a href='#'>
+          <img alt='Landing Page Hazard' src='https://public.tableau.com/static/images/Ch/Chelsea_FC/LandingPageHazard/1_rss.png' style='border: none' />
+        </a>
+      </noscript>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='Chelsea_FC/LandingPageHazard' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https://public.tableau.com/static/images/Ch/Chelsea_FC/LandingPageHazard/1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+        <param name='language' value='en-US' />
+      </object>
+    </div>
+    <script type='text/javascript'>
+      var divElement = document.getElementById('viz1744954995077');
+      var vizElement = divElement.getElementsByTagName('object')[0];
+      vizElement.style.width='1500px';
+      vizElement.style.height='827px';
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+    <!-- Game Area -->
+    <h2>Try My Cool Number Guessing Game!</h2>
+    <div id="game-container" style="background-color: #222; color: white; padding: 20px; border-radius: 8px;">
+      <h3>Guess a number between 1 and 100:</h3>
+      <input type="number" id="guess" placeholder="Enter your guess" style="padding: 5px; margin-bottom: 10px;">
+      <button id="submitGuess" style="padding: 5px 10px; background-color: #00bcd4; color: white; border: none; border-radius: 5px;">Submit Guess</button>
+      <p id="result" style="margin-top: 20px; font-weight: bold;"></p>
+    </div>
+
+    <script>
+      // Number Guessing Game Logic
+      let secretNumber = Math.floor(Math.random() * 100) + 1;
+      let attempts = 0;
+
+      // Reset the game
+      function resetGame() {
+        secretNumber = Math.floor(Math.random() * 100) + 1;
+        attempts = 0;
+        document.getElementById('guess').value = '';
+        document.getElementById('result').textContent = '';
+      }
+
+      document.getElementById('submitGuess').addEventListener('click', function() {
+        const userGuess = parseInt(document.getElementById('guess').value);
+
+        if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+          document.getElementById('result').textContent = 'Please enter a number between 1 and 100.';
+          document.getElementById('result').style.color = 'red';
+          return;
+        }
+
+        attempts++;
+
+        if (userGuess === secretNumber) {
+          document.getElementById('result').textContent = `Correct! It took you ${attempts} attempts.`;
+          document.getElementById('result').style.color = 'green';
+        } else if (userGuess < secretNumber) {
+          document.getElementById('result').textContent = 'Too low, try again!';
+          document.getElementById('result').style.color = 'red';
+        } else {
+          document.getElementById('result').textContent = 'Too high, try again!';
+          document.getElementById('result').style.color = 'red';
+        }
+
+        // Enable the "Reset Game" button after the first attempt
+        if (attempts > 0) {
+          const resetButton = document.createElement('button');
+          resetButton.textContent = 'Reset Game';
+          resetButton.style.padding = '5px 10px';
+          resetButton.style.backgroundColor = '#f44336';
+          resetButton.style.color = 'white';
+          resetButton.style.border = 'none';
+          resetButton.style.borderRadius = '5px';
+          resetButton.style.marginTop = '20px';
+          document.getElementById('game-container').appendChild(resetButton);
+
+          resetButton.addEventListener('click', function() {
+            resetGame();
+            resetButton.remove();  // Remove the reset button once the game is reset
+          });
+        }
+      });
+    </script>
+  </div>
+</body>
+</html>
+
